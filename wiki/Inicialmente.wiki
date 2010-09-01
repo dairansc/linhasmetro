@@ -16,4 +16,4 @@ Consiste em implementar painéis em cada estação onde esses irão informar o t
   * O professor sugeriu desenhar na tela com a biblioteca conio_linux.h disponibilizada em [http://www.inf.pucrs.br/~celso/Progs/] mas como é no modo texto, é quase certo que teríamos problemas com a monitoração visual. Como solução para isso será utilizada a biblioteca gráfica *OpenGL*, que para esse projeto seu uso é bem simples.
   * Introdução e consulta de diversos exemplos para a biblioteca OpenGL em [http://www.ft.unicamp.br/~magic/opengl/index2006.html]
   * Instalação da biblioteca OpenGL no linux para poder compilar:
-     _apt-get install freeglut3 freeglut3-dev libglut3 libglut3-dev_
+     {{{apt-get install freeglut3 freeglut3-dev libglut3 libglut3-dev}}}
