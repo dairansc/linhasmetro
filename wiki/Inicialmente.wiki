@@ -2,7 +2,7 @@
 
 = Introdução =
 
-_*Data de Entrega: ??/??/??*_
+_*Data de Entrega: 30/09/2010*_
 
 Projeto a ser desenvolvido para a disciplina de *Sistemas de Tempo Real*.
 Consiste em implementar painéis em cada estação onde esses irão informar o tempo que um determinado trem do metrô levará para chegar na estação, os trens deverão percorrer suas rotas informando suas posições de tempo em tempo (threads trens), enquanto os painéis recebem esse sinal, efetuam a operação do tempo restante e mostra na tela (outras threads paineis).
