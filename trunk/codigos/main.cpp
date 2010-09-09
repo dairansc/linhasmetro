@@ -73,8 +73,11 @@ void Plataformas::desenha(){
 
 
 //Plataformas * plataforma[QNT_PLATAFORMAS];
-Plataformas *plat;
-plat = new Plataformas[3];
+Plataformas plat[3] = new Plataformas("A", 0, 0);
+//colocar no display
+plat[0].nome = "plat0";
+plat[0].posX = 155;
+plat = new Platafomas[3];
 //Plataformas Pl_B("B", 500, 400);
 //plat[0] = *aux;
 //Plataformas Pl_A[1] = new Plataformas("B", 500, 400);
