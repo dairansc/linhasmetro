@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1257439190 source:/home/dairan/Área de Trabalho/linhasmetro/GL.cpp
+	"GL.h"
+	"Renderer.h"
+
+1257439190 /home/dairan/Área de Trabalho/linhasmetro/GL.h
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<string>
+	<cmath>
+	<GL/glut.h>
+
+1283793761 source:/home/dairan/Área de Trabalho/linhasmetro/main.cpp
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1283786716 source:/home/dairan/Área de Trabalho/linhasmetro/classes/Plataformas.cc
+	<iostream>
+	"../config.cc"
+
+1283780931 source:/home/dairan/Área de Trabalho/linhasmetro/classes/carrega_classes.cc
+	"Plataformas.cc"
+
+1283786716 /home/dairan/Área de Trabalho/linhasmetro/classes/Plataformas.cc
+	<iostream>
+	"../config.cc"
+
+1283780931 /home/dairan/Área de Trabalho/linhasmetro/classes/carrega_classes.cc
+	"Plataformas.cc"
+
+1283786725 /home/dairan/Área de Trabalho/linhasmetro/config.cc
+
+1283786725 source:/home/dairan/Área de Trabalho/linhasmetro/config.cc
+
+1257439190 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/GL.cpp
+	"GL.h"
+	"Renderer.h"
+
+1257439190 /home/dairan/Área de Trabalho/linhasmetro/codigos/GL.h
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<string>
+	<cmath>
+	<GL/glut.h>
+
+1283786716 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/classes/Plataformas.cc
+	<iostream>
+	"../config.cc"
+
+1283786725 /home/dairan/Área de Trabalho/linhasmetro/codigos/config.cc
+
+1283780931 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/classes/carrega_classes.cc
+	"Plataformas.cc"
+
+1283786716 /home/dairan/Área de Trabalho/linhasmetro/codigos/classes/Plataformas.cc
+	<iostream>
+	"../config.cc"
+
+1283786725 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/config.cc
+
