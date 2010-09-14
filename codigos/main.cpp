@@ -7,22 +7,23 @@
 //#include "classes/carrega_classes.cc"
 
 #define PI 3.1415926535898
-#define TEXT_BUFFER 30
 GLfloat BRANCO[] =   {1.0, 1.0, 1.0},
         VERMELHO[] = {1.0, 0.0, 0.0},
-        VERDE[] =   {0.0, 1.0, 0.0},
+        VERDE[] =    {0.0, 1.0, 0.0},
         AZUL[] =     {0.0, 0.0, 1.0},
         AMARELO[] =  {1.0, 1.0, 0.0},
         ROSA[] =     {1.0, 0.0, 1.0};
 
 
+#define PLATAFORMA_RAIOX 20.0
+#define PLATAFORMA_RAIOY 10.0
+#define PLATAFORMA_QNT 3
+int CONTROLE_ID_PLATAFORMAS = 0;
+GLfloat *PLATAFORMA_COR_BORDA = BRANCO,
+        *PLATAFORMA_COR_TEXTO = VERDE;
 
 
-int QNT_PLATAFORMAS = 9;
-GLfloat *COR_BORDA_PLATAFORMAS = BRANCO,
-        *COR_TEXTO_PLATAFORMAS = VERDE;
-
-
+#define LINHA_QNT 3
 
 // prototipos das funcoes
 void bitmap_output(int x, int y, char *string, void *font);
@@ -36,65 +37,68 @@ void keyboard(unsigned char key, int x, int y);
 class Plataformas {
 public:
     int id;
-    char nome[TEXT_BUFFER];
+    char * nome;
     int posX;
     int posY;
     //Paineis paineis[PLAT_MAX_PAINES];
     int com_defeito;
 
+    void inicializa(char * n, int x, int y);
     void desenha ();
-    Plataformas(char *, int, int);
 };
-/*
-Plataformas::Plataformas(char * n, int x, int y){
-    this->id = QNT_PLATAFORMAS;
-    QNT_PLATAFORMAS--;
+
+void Plataformas::inicializa(char * n, int x, int y){
+    this->id = CONTROLE_ID_PLATAFORMAS;
+    CONTROLE_ID_PLATAFORMAS++;
+    this->nome = (char *)malloc(strlen(n)+1);
     strcpy(this->nome, n);
     this->posX = x;
     this->posY = y;
     this->com_defeito = 0;
-}*/
+}
 
 void Plataformas::desenha(){
-    glColor3fv(COR_TEXTO_PLATAFORMAS);
+    glColor3fv(PLATAFORMA_COR_TEXTO);
     bitmap_output(this->posX-5, this->posY-5, this->nome, GLUT_BITMAP_HELVETICA_12);
 
     GLfloat circle_points = 100.0f;
-    GLfloat angle, raioX=20.0f, raioY=10.0f;
-    glColor3fv(COR_BORDA_PLATAFORMAS);
+    GLfloat angle;
+    glColor3fv(PLATAFORMA_COR_BORDA);
     glBegin(GL_LINE_LOOP);
     for (int i = 0; i < circle_points; i++) {
         angle = 2*PI*i/circle_points;
-        glVertex2f(cos(angle)*raioX + this->posX, sin(angle)*raioY + this->posY);
+        glVertex2f(cos(angle)*PLATAFORMA_RAIOX + this->posX, sin(angle)*PLATAFORMA_RAIOY + this->posY);
     }
     glEnd();
     glFlush();
 }
 
 
-//Plataformas * plataforma[QNT_PLATAFORMAS];
-Plataformas plat[3] = new Plataformas("A", 0, 0);
-//colocar no display
-plat[0].nome = "plat0";
-plat[0].posX = 155;
-plat = new Platafomas[3];
-//Plataformas Pl_B("B", 500, 400);
-//plat[0] = *aux;
-//Plataformas Pl_A[1] = new Plataformas("B", 500, 400);
+class Conexoes {
+public:
+    int id;
+    int de_plataforma_id;
+    int ate_plataforma_id;
+    int distancia;
+    int com_defeito;
+    void desenha();
+private:
+    GLfloat cor;
+};
 
-/*
-plataforma[QNT_PLATAFORMAS] = new Plataformas("I", 900, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("H", 800, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("G", 700, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("F", 600, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("E", 500, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("D", 400, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("C", 300, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("B", 200, 400);
-plataforma[QNT_PLATAFORMAS] = new Plataformas("A", 100, 400);
-*/
+class Linhas {
+public:
+    int id;
+    char * nome;
+    Conexoes * conexoes;
+    void desenha_legenda ();
+    void inicializa(char * n, GLfloat c);
+private:
+    GLfloat cor;
+};
 
-
+Plataformas plat[PLATAFORMA_QNT];
+Linhas linha[LINHA_QNT];
 
 // funcao principal
 int main(int argc, char** argv){
@@ -103,8 +107,6 @@ int main(int argc, char** argv){
     glutInitWindowSize (1000, 500);                          // especifica as dimensoes da janela
     glutInitWindowPosition (10, 10);                      // especifica aonde a janela aparece na tela
     glutCreateWindow ("Linhas de Metro");              // cria a janela
-
-
 
     init();
     glutDisplayFunc(display);                               // funcao que sera redesenhada pelo GLUT
@@ -129,8 +131,12 @@ void bitmap_output(int x, int y, char *string, void *font){
 
 
 void init(void){
-  glClearColor(0.0, 0.0, 0.0, 0.0);    // cor de fundo
-  glOrtho (0, 1000, 0, 500, -1 ,1);     // modo de projecao ortogonal
+    glClearColor(0.0, 0.0, 0.0, 0.0);    // cor de fundo
+    glOrtho (0, 1000, 0, 500, -1 ,1);     // modo de projecao ortogonal
+
+    plat[0].inicializa("A",30,30);
+    plat[1].inicializa("B",400,400);
+    plat[2].inicializa("C",550,400);
 }
 
 void exibe_plataforma(char *nome, GLint posX, GLint posY, GLfloat cor_texto[], GLfloat cor_circulo[]){
@@ -173,8 +179,12 @@ void display(void){
     glClear(GL_COLOR_BUFFER_BIT);               // limpa a janela
     GLfloat branco[] = {1.0, 1.0, 1.0}, vermelho[] = {1.0, 0.0, 0.0}, verde[] = {0.0, 1.0, 0.0}, azul[] = {0.0, 0.0, 1.0}, amarelo[] = {1.0, 1.0, 0.0}, rosa[] = {1.0, 0.0, 1.0};
 
-    Pl_A.desenha();
-    Pl_B.desenha();
+
+
+    plat[0].desenha();
+    plat[1].desenha();
+    plat[2].desenha();
+    //Pl_B.desenha();
 
     glColor3fv(branco);                  // cor da linha
     glBegin(GL_LINES);
