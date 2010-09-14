@@ -22,7 +22,6 @@ int CONTROLE_ID_PLATAFORMAS = 0;
 GLfloat *PLATAFORMA_COR_BORDA = BRANCO,
         *PLATAFORMA_COR_TEXTO = VERDE;
 
-
 #define LINHA_QNT 3
 
 // prototipos das funcoes
