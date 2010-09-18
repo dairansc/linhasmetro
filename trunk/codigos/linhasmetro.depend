@@ -63,3 +63,10 @@
 
 1283786725 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/config.cc
 
+1284498629 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
