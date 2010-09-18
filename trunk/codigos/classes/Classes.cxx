@@ -21,13 +21,15 @@ class Conexoes
 public:
 	void inicializa (int de_plat_id,
 	                 int ate_plat_id,
-	                 GLcor c);
+	                 GLcor c,
+	                 int tipo_con);
 	void desenha ();
 	int id;
 	int de_plataforma_id;
 	int ate_plataforma_id;
 	int distancia;
 	int com_defeito;
+	int tipo_conexao;
 private:
 	GLcor cor;
 };
@@ -80,7 +82,8 @@ public:
 	void inicializa (char * n,
 	                 GLcor c);
 	void add_conexao (int de_plat_id,
-	                  int ate_plat_id);
+	                  int ate_plat_id,
+	                  int tipo_conexao);
 	void desenha_legenda ();
 	int id;
 	char * nome;
