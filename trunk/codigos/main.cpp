@@ -69,7 +69,7 @@ GLcor PLATAFORMA_COR_BORDA = BRANCO,
 int CONTROLE_ID_LINHAS = 0;
 
 // prototipos das funcoes
-void bitmap_output(int x, int y, char *string, void *font);
+void bitmap_output(int x, int y, string str, void *font);
 void init(void);
 void display(void);
 void keyboard(unsigned char key, int x, int y);
@@ -79,24 +79,25 @@ void keyboard(unsigned char key, int x, int y);
 class Plataformas
 {
 public:
-    void inicializa (char * n,
+    void inicializa (string n,
                      int x,
                      int y);
     void desenha ();
 
     int id;
-    char * nome;
+    string nome;
     int posX;
     int posY;
     int paineis_ocupados;
     int com_defeito;
 };
 
-void Plataformas::inicializa(char * n, int x, int y){
+void Plataformas::inicializa(string n, int x, int y){
     this->id = CONTROLE_ID_PLATAFORMAS;
     CONTROLE_ID_PLATAFORMAS++;
-    this->nome = (char *)malloc(strlen(n)+1);
-    strcpy(this->nome, n);
+    //this->nome = (char *)malloc(strlen(n)+1);
+    //strcpy(this->nome, n);
+    this->nome = n;
     this->posX = x;
     this->posY = y;
     this->com_defeito = 0;
@@ -140,27 +141,31 @@ private:
 class Linhas
 {
 public:
-	void inicializa (char * n,
+	void inicializa (string n,
 	                 GLcor c);
 	void add_conexao (int de_plat_id,
 	                  int ate_plat_id,
 	                  int tipo_conexao);
 	void desenha_legenda ();
 	int id;
-	char * nome;
+	string nome;
 	Conexoes * conexoes;
 private:
+    Conexoes * primeira_conexao;
 	GLcor cor;
 };
 
-
-void Linhas::inicializa(char * n, GLcor c){
+void Linhas::inicializa(string n, GLcor c){
     this->id = CONTROLE_ID_LINHAS;
     CONTROLE_ID_LINHAS++;
-    this->nome = (char *)malloc(strlen(n)+1);
-    strcpy(this->nome, n);
+    //this->nome = (char *)malloc(strlen(n)+1);
+    //strcpy(this->nome, n);
+    this->nome = n;
     //this->cor = (GLfloat *)malloc(sizeof(c)+1);
     this->cor = c;
+}
+
+void Linhas::add_conexao(int de_plat_id, int ate_plat_id, int tipo_conexao){
 
 }
 
@@ -185,13 +190,13 @@ int main(int argc, char** argv){
 
 
 // definicao de cada funcao
-void bitmap_output(int x, int y, char *string, void *font){
+void bitmap_output(int x, int y, string str, void *font){
   int len, i;
 
   glRasterPos2f(x, y);
-  len = (int) strlen(string);
+  len = str.length();
   for (i = 0; i < len; i++) {
-    glutBitmapCharacter(font, string[i]);
+    glutBitmapCharacter(font, str[i]);
   }
 }
 
@@ -208,7 +213,7 @@ void init(void){
     linha[0].inicializa("Centro", BRANCO);
 }
 
-void exibe_plataforma(char *nome, GLint posX, GLint posY, GLfloat cor_texto[], GLfloat cor_circulo[]){
+void exibe_plataforma(string nome, GLint posX, GLint posY, GLfloat cor_texto[], GLfloat cor_circulo[]){
     glColor3fv(cor_texto);
     bitmap_output(posX-5, posY-5, nome, GLUT_BITMAP_HELVETICA_12);
 
