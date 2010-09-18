@@ -60,6 +60,11 @@ GLcor PLATAFORMA_COR_BORDA = BRANCO,
       PLATAFORMA_COR_TEXTO = VERDE;
 
 
+#define CON_TIPO_NORMAL 0
+#define CON_TIPO_INICIO 1
+#define CON_TIPO_FIM    2
+
+
 #define LINHA_QNT 3
 int CONTROLE_ID_LINHAS = 0;
 
@@ -117,34 +122,37 @@ void Plataformas::desenha(){
 class Conexoes
 {
 public:
-    void inicializa (int de_plat_id,
-                     int ate_plat_id,
-                     GLcor c);
-    void desenha ();
-    int id;
-    int de_plataforma_id;
-    int ate_plataforma_id;
-    int distancia;
-    int com_defeito;
+	void inicializa (int de_plat_id,
+	                 int ate_plat_id,
+	                 GLcor c,
+	                 int tipo_con);
+	void desenha ();
+	int id;
+	int de_plataforma_id;
+	int ate_plataforma_id;
+	int distancia;
+	int com_defeito;
+	int tipo_conexao;
 private:
-    GLcor cor;
+	GLcor cor;
 };
 
 class Linhas
 {
 public:
-    void inicializa (char * n,
-                     GLcor c);
-    void add_conexao (int de_plat_id,
-                      int ate_plat_id);
-    void desenha_legenda ();
-
-    int id;
-    char * nome;
-    Conexoes * conexoes;
+	void inicializa (char * n,
+	                 GLcor c);
+	void add_conexao (int de_plat_id,
+	                  int ate_plat_id,
+	                  int tipo_conexao);
+	void desenha_legenda ();
+	int id;
+	char * nome;
+	Conexoes * conexoes;
 private:
-    GLcor cor;
+	GLcor cor;
 };
+
 
 void Linhas::inicializa(char * n, GLcor c){
     this->id = CONTROLE_ID_LINHAS;
@@ -197,7 +205,7 @@ void init(void){
     plat[1].inicializa("B",400,400);
     plat[2].inicializa("C",550,400);
 
-    //linha[0].inicializa("Centro", BRANCO);
+    linha[0].inicializa("Centro", BRANCO);
 }
 
 void exibe_plataforma(char *nome, GLint posX, GLint posY, GLfloat cor_texto[], GLfloat cor_circulo[]){
