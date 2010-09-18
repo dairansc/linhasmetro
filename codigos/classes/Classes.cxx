@@ -34,15 +34,16 @@ private:
 	GLcor cor;
 };
 
+/*(NULL)*/
 class Plataformas 
 {
 public:
-	void inicializa (char * n,
+	void inicializa (string n,
 	                 int x,
 	                 int y);
 	void desenha ();
 	int id;
-	char * nome;
+	string nome;
 	int posX;
 	int posY;
 	int paineis_ocupados;
@@ -79,14 +80,14 @@ private:
 class Linhas 
 {
 public:
-	void inicializa (char * n,
+	void inicializa (string n,
 	                 GLcor c);
 	void add_conexao (int de_plat_id,
 	                  int ate_plat_id,
 	                  int tipo_conexao);
 	void desenha_legenda ();
 	int id;
-	char * nome;
+	string nome;
 	Conexoes * conexoes;
 private:
 	GLcor cor;
