@@ -1,0 +1,21 @@
+O Windows por padrão já possui o OpenGL Instalado e o Visual Studio vem com as bibliotecas dos OpenGL.
+Mas nenhum deles vem com o GLUT. Baixe a versão mais atual no link abaixo:
+Link: http://www.bdjogos.com/biblioteca_conteudo.php?id=33
+
+
+
+Biblioteca Glut
+Download
+
+Ao descompactar o arquivo baixado copie os arquivos do GLUT seguindo os locais conforme a tabela abaixo.
+
+Se você não encontrar a pasta do visual studio com o mesmo nome pode ser porque a sua versão seja diferente que a usada para exemplicar esse artigo. O processo é o mesmo para todas as versões.
+
+Procure na pasta do Visual Studio com as mesmas características dos locais abaixo.
+
+Arquivo 	OS 	Local
+glut32.dll 	Windows XP 	C:\WINDOWS\system\
+glut32.dll 	Server 2003 	C:\WINDOWS\system\
+glut32.dll 	WINDOWS NT 	C:\WINNT\system\
+glut32.lib 	Windows XP 	C:\Arquivos de programas\Microsoft Visual Studio 9.0\VC\lib
+glut.h 	Windows XP 	C:\Arquivos de programas\Microsoft Visual Studio 9.0\VC\include\gl
