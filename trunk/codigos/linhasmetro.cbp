@@ -7,10 +7,12 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Release">
-				<Option output="./linhasmetro" prefix_auto="1" extension_auto="1" />
-				<Option object_output="./" />
+				<Option output="./debug/linhasmetro" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./debug" />
+				<Option object_output="./debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -28,12 +30,15 @@
 			<Add library="GLU" />
 			<Add library="glut" />
 		</Linker>
-		<Unit filename="GL.cpp" />
-		<Unit filename="GL.h" />
-		<Unit filename="classes/Plataformas.cc" />
-		<Unit filename="classes/carrega_classes.cc" />
-		<Unit filename="config.cc" />
+		<Unit filename="Conexoes.h" />
+		<Unit filename="Linhas.h" />
+		<Unit filename="Paineis.h" />
+		<Unit filename="Plataformas.h" />
+		<Unit filename="Trens.h" />
+		<Unit filename="defines.h" />
+		<Unit filename="libs.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="openGLlib.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

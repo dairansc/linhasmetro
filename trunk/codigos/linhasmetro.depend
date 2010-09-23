@@ -63,11 +63,34 @@
 
 1283786725 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/config.cc
 
-1284827814 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
+1285169692 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
 	<iostream>
-	<GL/glut.h>
+	<string>
 	<stdio.h>
-	<stdlib.h>
 	<math.h>
-	<string.h>
+	<GL/glut.h>
+	"openGLlib.h"
+	"defines.h"
+	"Plataformas.h"
+	"Conexoes.h"
+	"Linhas.h"
+	"Trens.h"
+	"Paineis.h"
+	"libs.h"
+
+1285162108 /home/dairan/Área de Trabalho/linhasmetro/codigos/openGLlib.h
+
+1285169457 /home/dairan/Área de Trabalho/linhasmetro/codigos/defines.h
+
+1285165533 /home/dairan/Área de Trabalho/linhasmetro/codigos/Linhas.h
+
+1285170259 /home/dairan/Área de Trabalho/linhasmetro/codigos/Conexoes.h
+
+1285167489 /home/dairan/Área de Trabalho/linhasmetro/codigos/Trens.h
+
+1285169436 /home/dairan/Área de Trabalho/linhasmetro/codigos/Plataformas.h
+
+1285166993 /home/dairan/Área de Trabalho/linhasmetro/codigos/Paineis.h
+
+1285169715 /home/dairan/Área de Trabalho/linhasmetro/codigos/libs.h
 
