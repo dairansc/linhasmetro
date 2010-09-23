@@ -7,10 +7,11 @@ using namespace std;
 #include "openGLlib.h"
 #include "defines.h"
 #include "Plataformas.h"
-Plataformas plataformas[PLATAFORMA_QNT];
+Plataformas plataformas[PLATAFORMA_QNT_MAX];
 #include "Conexoes.h"
+Conexoes conexoes[CON_QNT_MAX];
 #include "Linhas.h"
-Linhas linhas[LINHA_QNT];
+Linhas linhas[LINHA_QNT_MAX];
 #include "Trens.h"
 #include "Paineis.h"
 
