@@ -1,6 +1,8 @@
 //#include <stdio.h>
 // definicao de cada funcao
+void erro(string mensagem){
 
+}
 
 void init(){
     glClearColor(0.0, 0.0, 0.0, 0.0);    // cor de fundo
@@ -66,36 +68,37 @@ void display(void){
     glVertex2f(150, 350);
     glEnd();
 
-    exibe_plataforma("A",200,200,vermelho,verde);
+    int bx = 400, by = 300;
+    exibe_plataforma("A",bx,by,vermelho,verde);
 
     char texto[30];
     sprintf(texto,"%02d:%02d:%02d",80,20,40);
     glColor3fv(branco);
     bitmap_output(183, 214, texto, GLUT_BITMAP_TIMES_ROMAN_10);
 
-    exibe_borda_painel(200, 217, 60, verde);
-    exibe_borda_painel(200, 228, 62, verde);
+    exibe_borda_painel(bx, by+17, 60, verde);
+    exibe_borda_painel(bx, by+28, 62, verde);
 
-    exibe_borda_painel(200, 239, 60, vermelho);
-    exibe_borda_painel(200, 250, 62, vermelho);
+    exibe_borda_painel(bx, by+39, 60, vermelho);
+    exibe_borda_painel(bx, by+50, 62, vermelho);
 
-    exibe_borda_painel(200, 183, 60, branco);
-    exibe_borda_painel(200, 172, 62, branco);
+    exibe_borda_painel(bx, by-17, 60, branco);
+    exibe_borda_painel(bx, by-28, 62, branco);
 
-    exibe_borda_painel(200, 161, 60, azul);
-    exibe_borda_painel(200, 150, 62, azul);
+    exibe_borda_painel(bx, by-39, 60, azul);
+    exibe_borda_painel(bx, by-50, 62, azul);
 
-    exibe_borda_painel(153, 217, 60, amarelo);
-    exibe_borda_painel(153, 206, 62, amarelo);
+    exibe_borda_painel(bx-47, by+17, 60, amarelo);
+    exibe_borda_painel(bx-47, by+6, 62, amarelo);
 
-    exibe_borda_painel(153, 195, 60, rosa);
-    exibe_borda_painel(153, 184, 62, rosa);
+    exibe_borda_painel(bx-47, by-5, 60, rosa);
+    exibe_borda_painel(bx-47, by-16, 62, rosa);
 
-    exibe_borda_painel(247, 217, 60, azul);
-    exibe_borda_painel(247, 206, 62, azul);
+    exibe_borda_painel(bx+47, by+17, 60, azul);
+    exibe_borda_painel(bx+47, by+6, 62, azul);
 
-    exibe_borda_painel(247, 195, 60, vermelho);
-    exibe_borda_painel(247, 184, 62, vermelho);
+    exibe_borda_painel(bx+47, by-5, 60, vermelho);
+    exibe_borda_painel(bx+47, by-16, 62, vermelho);
 
 
     glColor3fv(branco);
