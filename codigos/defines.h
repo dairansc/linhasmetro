@@ -36,5 +36,16 @@ int PLATAFORMA_SLOTS[16][2] = //posição de cada painel em relação a platafor
 #define CON_QNT_MAX     50
 int CON_QNT = 0;
 
+#define LINHA_CON_QNT_MAX 50
 #define LINHA_QNT_MAX 8
 int LINHA_QNT = 0;
+
+#define TREM_QNT_MAX 30
+int TREM_QNT = 0;
+
+#define PAINEL_QNT_MAX 30
+int PAINEL_QNT = 0;
+
+
+#define ERRO_CRITICO 0
+#define ERRO_INFO 1

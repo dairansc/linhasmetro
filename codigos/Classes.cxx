@@ -14,15 +14,13 @@ private:
 	GLcor cor;
 };
 
-/*(NULL)*/
 class Conexoes 
 {
 public:
 	void inicializa (int de_plat_id,
 	                 int ate_plat_id,
 	                 GLcor c,
-	                 int tipo_con,
-	                 int id);
+	                 int tipo_con);
 	void desenha ();
 	int id;
 	int de_plataforma_id;
@@ -34,14 +32,12 @@ private:
 	GLcor cor;
 };
 
-/*(NULL)*/
 class Plataformas 
 {
 public:
 	void inicializa (string n,
 	                 int x,
-	                 int y,
-	                 int id);
+	                 int y);
 	void desenha ();
 	int id;
 	string nome;
@@ -51,15 +47,13 @@ public:
 	bool com_defeito;
 };
 
-/*(NULL)*/
 class Paineis 
 {
 public:
 	void inicializa (int plat_id,
 	                 int linha_id,
 	                 int ocupar_painel,
-	                 GLcor c,
-	                 int id);
+	                 GLcor c);
 	void desenha ();
 	void procura_prox_trem ();
 	void set_tempo (int segundos);
@@ -83,15 +77,15 @@ class Linhas
 {
 public:
 	void inicializa (string n,
-	                 GLcor c,
-	                 int id);
+	                 GLcor c);
 	void add_conexao (int de_plat_id,
 	                  int ate_plat_id,
 	                  int tipo_conexao);
 	void desenha_legenda ();
 	int id;
 	string nome;
-	Conexoes * conexoes;
+	int conexoes[LINHAS_CON_QNT_MAX];
+	int qnt_conexoes;
 private:
 	GLcor cor;
 };
