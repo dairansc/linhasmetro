@@ -1,7 +1,7 @@
 class Paineis
 {
 public:
-    void inicializa (int, int, int, GLcor, int);
+    void inicializa (int, int, int, GLcor);
     void desenha ();
     void procura_prox_trem ();
     void set_tempo (int segundos);
@@ -22,7 +22,7 @@ private:
     GLcor cor;
 };
 
-void inicializa (int plat_id, int linha_id, int ocupar_painel, GLcor c, int id)
+void inicializa (int plat_id, int linha_id, int ocupar_painel, GLcor c)
 {
 
 }

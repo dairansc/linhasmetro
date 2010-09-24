@@ -11,13 +11,15 @@ public:
     bool com_defeito;
     int tipo_conexao;
 
-    void inicializa (int, int, GLcor, int, int);
+    void inicializa (int, int, int, GLcor);
     void desenha ();
 private:
     GLcor cor;
 };
 
-void Conexoes::inicializa (int de_plat_id, int ate_plat_id, GLcor c, int tipo_con, int id){
+void Conexoes::inicializa (int de_plat_id, int ate_plat_id, int tipo_con, GLcor c){
+    this->id = CON_QNT;
+    CON_QNT++;
     this->de_plataforma_id = de_plat_id;
     this->ate_plataforma_id = ate_plat_id;
     this->com_defeito = false;

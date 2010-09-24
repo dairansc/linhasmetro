@@ -1,18 +1,17 @@
 //#include <stdio.h>
 // definicao de cada funcao
-void erro(string mensagem){
 
-}
 
 void init(){
     glClearColor(0.0, 0.0, 0.0, 0.0);    // cor de fundo
     glOrtho (0, 1000, 0, 500, -1 ,1);     // modo de projecao ortogonal
 
-    plataformas[0].inicializa("A",30,30,0);
-    plataformas[1].inicializa("B",400,400,1);
-    plataformas[2].inicializa("C",550,400,2);
+    plataformas[0].inicializa("A",30,30);
+    plataformas[1].inicializa("B",400,400);
+    plataformas[2].inicializa("C",550,400);
 
-    linhas[0].inicializa("Centro", BRANCO,0);
+    linhas[0].inicializa("Centro", BRANCO);
+    linhas[0].add_conexao(0,1,CON_TIPO_INICIO,conexoes);
 }
 
 void exibe_plataforma(string nome, GLint posX, GLint posY, GLfloat cor_texto[], GLfloat cor_circulo[]){
@@ -56,11 +55,12 @@ void display(void){
     GLfloat branco[] = {1.0, 1.0, 1.0}, vermelho[] = {1.0, 0.0, 0.0}, verde[] = {0.0, 1.0, 0.0}, azul[] = {0.0, 0.0, 1.0}, amarelo[] = {1.0, 1.0, 0.0}, rosa[] = {1.0, 0.0, 1.0};
 
 
-
     plataformas[0].desenha();
     plataformas[1].desenha();
     plataformas[2].desenha();
     //Pl_B.desenha();
+
+    conexoes[0].desenha();
 
     glColor3fv(branco);                  // cor da linha
     glBegin(GL_LINES);

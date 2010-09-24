@@ -4,8 +4,13 @@ using namespace std;
 #include <stdio.h>
 #include <math.h>
 #include <GL/glut.h>
+
+//cabeçalhos próprios
 #include "openGLlib.h"
 #include "defines.h"
+#include "lib.h"
+
+//Classes
 #include "Plataformas.h"
 Plataformas plataformas[PLATAFORMA_QNT_MAX];
 #include "Conexoes.h"
@@ -13,9 +18,12 @@ Conexoes conexoes[CON_QNT_MAX];
 #include "Linhas.h"
 Linhas linhas[LINHA_QNT_MAX];
 #include "Trens.h"
+Linhas trens[TREM_QNT_MAX];
 #include "Paineis.h"
+Linhas paineis[PAINEL_QNT_MAX];
 
-#include "libs.h"
+
+#include "inicializacao.h"
 
 
 int main(int argc, char** argv)

@@ -5,7 +5,7 @@
 class Plataformas
 {
 public:
-    void inicializa (string, int, int, int);
+    void inicializa (string, int, int);
     void desenha ();
 
     int id;
@@ -16,12 +16,12 @@ public:
     bool com_defeito;
 };
 
-void Plataformas::inicializa(string n, int x, int y, int id)
-{
+void Plataformas::inicializa(string n, int x, int y){
+    this->id = PLATAFORMA_QNT;
+    PLATAFORMA_QNT++;
     this->nome = n;
     this->posX = x;
     this->posY = y;
-    this->id = id;
     this->com_defeito = false;
 }
 
