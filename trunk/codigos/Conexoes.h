@@ -33,6 +33,8 @@ void Conexoes::inicializa (int de_plat_id, int ate_plat_id, int tipo_con, GLcor 
     y2 = plataformas[ate_plat_id].posY;
 
     this->distancia = sqrt( pow(x2-x1,2) + pow(y2-y1,2) );
+
+    cout << "Nova Conexão da Plataforma " << this->de_plataforma_id << " ate "<< this->ate_plataforma_id << ", ditancia: " << this->distancia << endl;
 }
 
 void Conexoes::desenha(){
