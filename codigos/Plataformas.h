@@ -23,6 +23,7 @@ void Plataformas::inicializa(string n, int x, int y){
     this->posX = x;
     this->posY = y;
     this->com_defeito = false;
+    cout << "Nova Plataforma " << this->nome << "["<< this->id << "], na posição (" << this->posX << "," << this->posY << ")" << endl;
 }
 
 void Plataformas::desenha(){
