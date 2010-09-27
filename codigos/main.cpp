@@ -18,9 +18,9 @@ Conexoes conexoes[CON_QNT_MAX];
 #include "Linhas.h"
 Linhas linhas[LINHA_QNT_MAX];
 #include "Trens.h"
-Linhas trens[TREM_QNT_MAX];
+Trens trens[TREM_QNT_MAX];
 #include "Paineis.h"
-Linhas paineis[PAINEL_QNT_MAX];
+Paineis paineis[PAINEL_QNT_MAX];
 
 
 #include "inicializacao.h"
