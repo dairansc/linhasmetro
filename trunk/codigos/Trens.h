@@ -9,6 +9,5 @@ public:
     int conexao_atual_id;
     float velocidade_atual;
     float percorrido;
-private:
     GLcor cor;
 };

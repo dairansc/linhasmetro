@@ -7,24 +7,26 @@
 
 GLcor BRANCO =   {1.0, 1.0, 1.0},
       PRETO =    {0.0, 0.0, 0.0},
-      VERMELHO = {1.0, 0.0, 0.0},
-      VERDE =    {0.0, 1.0, 0.0},
-      AZUL =     {0.0, 0.0, 1.0},
-      AMARELO =  {1.0, 1.0, 0.0},
-      ROSA =     {1.0, 0.0, 1.0};
+      VERMELHO = {1.0, 0.25, 0.25},
+      VERDE =    {0.25, 1.0, 0.25},
+      AZUL =     {0.25, 0.25, 1.0},
+      AMARELO =  {1.0, 1.0, 0.25},
+      CINZA   =  {0.5, 0.5, 0.5},
+      ROSA =     {1.0, 0.25, 1.0};
 
 
 #define PLATAFORMA_RAIOX 20.0
 #define PLATAFORMA_RAIOY 10.0
 #define PLATAFORMA_QNT_MAX 10
 int PLATAFORMA_QNT = 0;
-GLcor PLATAFORMA_COR_BORDA = BRANCO,
-      PLATAFORMA_COR_TEXTO = VERDE;
+GLcor PLATAFORMA_COR_BORDA = PRETO,
+      PLATAFORMA_COR_FUNDO = BRANCO,
+      PLATAFORMA_COR_TEXTO = VERMELHO;
 int PLATAFORMA_SLOTS[16][2] = //posição de cada painel em relação a plataforma
-           {{0,17},  {0,28},
-            {0,39},  {0,50},
-            {0,-17}, {0,-28},
-            {0,-39}, {0,-50},
+           {{0,27},  {0,38},
+            {0,-27}, {0,-38},
+            {0,49},  {0,60},
+            {0,-49}, {0,-60},
             {-47,17},{-47,6},
             {-47,-5},{-47,-16},
             {47,17}, {47,6},
@@ -45,6 +47,8 @@ int TREM_QNT = 0;
 
 #define PAINEL_QNT_MAX 30
 int PAINEL_QNT = 0;
+GLcor PAINEL_COR_FUNDO = CINZA,
+      PAINEL_COR_TEXTO = BRANCO;
 
 
 #define ERRO_CRITICO 0

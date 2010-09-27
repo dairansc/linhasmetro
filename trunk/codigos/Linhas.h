@@ -14,14 +14,13 @@ public:
     string nome;
     int conexoes[LINHA_CON_QNT_MAX];
     int qnt_conexoes;
-private:
     GLcor cor;
 };
 
 void Linhas::desenha(Conexoes *cons){
-    for (int i = 0; i<this->qnt_conexoes; i++){
+    /*for (int i = 0; i<this->qnt_conexoes; i++){
         cons[this->conexoes[i]].desenha();
-    }
+    }*/
 }
 
 void Linhas::inicializa(string n, GLcor c){
