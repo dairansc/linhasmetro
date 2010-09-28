@@ -15,10 +15,10 @@ using namespace std;
 Plataformas plataformas[PLATAFORMA_QNT_MAX];
 #include "Conexoes.h"
 Conexoes conexoes[CON_QNT_MAX];
-#include "Linhas.h"
-Linhas linhas[LINHA_QNT_MAX];
 #include "Trens.h"
 Trens trens[TREM_QNT_MAX];
+#include "Linhas.h"
+Linhas linhas[LINHA_QNT_MAX];
 #include "Paineis.h"
 Paineis paineis[PAINEL_QNT_MAX];
 

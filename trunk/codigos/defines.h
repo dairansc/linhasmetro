@@ -21,7 +21,7 @@ GLcor BRANCO =   {1.0, 1.0, 1.0},
 int PLATAFORMA_QNT = 0;
 GLcor PLATAFORMA_COR_BORDA = PRETO,
       PLATAFORMA_COR_FUNDO = BRANCO,
-      PLATAFORMA_COR_TEXTO = VERMELHO;
+      PLATAFORMA_COR_TEXTO = AZUL;
 int PLATAFORMA_SLOTS[16][2] = //posição de cada painel em relação a plataforma
            {{0,27},  {0,38},
             {0,-27}, {0,-38},
@@ -39,11 +39,15 @@ int PLATAFORMA_SLOTS[16][2] = //posição de cada painel em relação a platafor
 int CON_QNT = 0;
 
 #define LINHA_CON_QNT_MAX 50
+#define LINHA_TREM_QNT_MAX 10
 #define LINHA_QNT_MAX 8
 int LINHA_QNT = 0;
 
+#define TREM_RAIO 6
 #define TREM_QNT_MAX 30
 int TREM_QNT = 0;
+GLcor TREM_COR_FUNDO = BRANCO,
+      TREM_COR_TEXTO = PRETO;
 
 #define PAINEL_QNT_MAX 30
 int PAINEL_QNT = 0;

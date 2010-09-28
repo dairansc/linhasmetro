@@ -15,9 +15,18 @@ void bitmap_output(int x, int y, string str, void *font){
 }
 
 void keyboard(unsigned char key, int x, int y){
+
     switch (key) {
+    case 'a':
+    //glClear(GL_COLOR_BUFFER_BIT);
+    //glutSwapBuffers();
+    //glFlush();
+
+    //glutSwapBuffers();
+    glutPostRedisplay();
+    break;
     case 27: case 13:                           // tecla Esc ou Enter(encerra o programa)
         exit(0);
-        break;
+    break;
     }
 }
