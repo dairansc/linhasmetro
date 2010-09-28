@@ -5,6 +5,7 @@
 void init(){
     glClearColor(0.0, 0.0, 0.0, 0.0);    // cor de fundo
     glOrtho (0, 1000, 0, 500, -1 ,1);     // modo de projecao ortogonal
+    glEnable( GL_LINE_SMOOTH );
 
     plataformas[0].inicializa("A",60,60);
     plataformas[1].inicializa("B",400,400);
@@ -24,15 +25,17 @@ void init(){
     linhas[2].inicializa("Inter", VERMELHO);
     linhas[2].add_conexao(3,0,CON_TIPO_INICIO,conexoes);
     linhas[2].add_conexao(0,1,CON_TIPO_FIM,conexoes);
+    linhas[2].add_trem(trens, conexoes);
 
     linhas[3].inicializa("Outra", AZUL);
     linhas[3].add_conexao(2,4,CON_TIPO_INICIO,conexoes);
 
-    int linha_id=-1, i, j, k, l;
+    int linha_id, i, j, k, l;
     for(i=0; i < PLATAFORMA_QNT; i++){// para cada plataforma
         //cout << "Procurando na plataforma " << plataformas[i].nome << endl;
         for(j=0; j<CON_QNT; j++){// para cada conector
             if(conexoes[j].ate_plataforma_id == plataformas[i].id){ // todos conectores que estiverem indo até a plataforma
+                linha_id = -1;
                 for(k=0; k<LINHA_QNT || linha_id<0; k++){
                     for(l=0; l<linhas[k].qnt_conexoes; l++){
                         if(conexoes[j].id == linhas[k].conexoes[l]){
@@ -45,6 +48,8 @@ void init(){
             }
         }
     }
+
+
 
 }
 
@@ -62,7 +67,46 @@ void exibe_plataforma(string nome, GLint posX, GLint posY){//, GLfloat cor_texto
     }
     glEnd();
     glFlush();*/
+int i=0;
+    //glClear(GL_COLOR_BUFFER_BIT);               // limpa a janela
 
+
+    //linhas[0].desenha(conexoes);
+    //linhas[1].desenha(conexoes);
+    //linhas[2].desenha(conexoes);
+    //linhas[0].inicializa("Centro", VERDE);
+    conexoes[i].desenha(0,0);
+    i++;
+    conexoes[i].desenha(0,0);
+    i++;
+
+    //linhas[1].inicializa("PUC", BRANCO);
+    conexoes[i].desenha(0,0);
+    i++;
+    conexoes[i].desenha(0,0);
+    i++;
+    conexoes[i].desenha(3,0);
+    i++;
+
+    //linhas[2].inicializa("Inter", VERMELHO);
+    conexoes[i].desenha(2,0);
+    i++;
+    conexoes[i].desenha(4,0);
+    i++;
+
+    //linhas[3].inicializa("Outra", AZUL);
+    conexoes[i].desenha(0,0);
+    i++;
+
+    plataformas[0].desenha();
+    plataformas[1].desenha();
+    plataformas[2].desenha();
+    plataformas[3].desenha();
+    plataformas[4].desenha();
+
+    for(int i=0; i<PAINEL_QNT; i++){
+        paineis[i].desenha();
+    }
 
     GLfloat circle_points = 100.0f;
     GLfloat angle;
@@ -70,7 +114,7 @@ void exibe_plataforma(string nome, GLint posX, GLint posY){//, GLfloat cor_texto
     glColor3f(PLATAFORMA_COR_FUNDO.r, PLATAFORMA_COR_FUNDO.g, PLATAFORMA_COR_FUNDO.b);
     glBegin(GL_TRIANGLE_FAN);
     glVertex2f(posX, posY);
-    for (angle=0; angle<=360; angle++){
+    for (angle=0; angle<=361; angle++){
         glVertex2f(posX + sin(angle) * PLATAFORMA_RAIOX, posY + cos(angle) * PLATAFORMA_RAIOY);
     }
 //glEnd();
@@ -110,7 +154,7 @@ void exibe_borda_painel(GLfloat posX, GLfloat posY, int sentido, GLfloat cor[]){
     glVertex2f(posX - metadeX, posY + metadeY);
     glEnd();
 
-    glFlush();
+    //glFlush();
 }
 
 //void set_tempo_painel(int qual, int valor, GLfloat cor[]){
@@ -118,46 +162,7 @@ void exibe_borda_painel(GLfloat posX, GLfloat posY, int sentido, GLfloat cor[]){
 //}
 
 void display(void){
-    int i=0;
-    glClear(GL_COLOR_BUFFER_BIT);               // limpa a janela
-    GLfloat branco[] = {1.0, 1.0, 1.0}, vermelho[] = {1.0, 0.0, 0.0}, verde[] = {0.0, 1.0, 0.0}, azul[] = {0.2, 0.2, 1.0}, amarelo[] = {1.0, 1.0, 0.0}, rosa[] = {1.0, 0.0, 1.0}, preto[] = {0.0, 0.0, 0.0};
 
-    //linhas[0].desenha(conexoes);
-    //linhas[1].desenha(conexoes);
-    //linhas[2].desenha(conexoes);
-    //linhas[0].inicializa("Centro", VERDE);
-    conexoes[i].desenha(0,0);
-    i++;
-    conexoes[i].desenha(0,0);
-    i++;
-
-    //linhas[1].inicializa("PUC", BRANCO);
-    conexoes[i].desenha(0,0);
-    i++;
-    conexoes[i].desenha(0,0);
-    i++;
-    conexoes[i].desenha(3,0);
-    i++;
-
-    //linhas[2].inicializa("Inter", VERMELHO);
-    conexoes[i].desenha(2,0);
-    i++;
-    conexoes[i].desenha(4,0);
-    i++;
-
-    //linhas[3].inicializa("Outra", AZUL);
-    conexoes[i].desenha(0,0);
-    i++;
-
-    plataformas[0].desenha();
-    plataformas[1].desenha();
-    plataformas[2].desenha();
-    plataformas[3].desenha();
-    plataformas[4].desenha();
-
-    for(int i=0; i<PAINEL_QNT; i++){
-        paineis[i].desenha();
-    }
     //Pl_B.desenha();
 /*
 int x1 = 300, y1 = 300, r = 20;
@@ -168,9 +173,41 @@ for (int angle = 0; angle<=360; angle+=1){
     glVertex2f(x1 + sin(angle) * r, y1 + cos(angle) * r);
 }
  glEnd();*/
+    GLfloat branco[] = {1.0, 1.0, 1.0}, vermelho[] = {1.0, 0.0, 0.0}, verde[] = {0.0, 1.0, 0.0}, azul[] = {0.2, 0.2, 1.0}, amarelo[] = {1.0, 1.0, 0.0}, rosa[] = {1.0, 0.0, 1.0}, preto[] = {0.0, 0.0, 0.0};
+    /*glColor3f(1.0, 1.0, 1.0);
+    int posX = 300, posY = 300, metadeX = 200, metadeY = 100;
+    glBegin(GL_POLYGON);
+    glVertex2f(posX - metadeX, posY - metadeY);
+    glVertex2f(posX + metadeX, posY - metadeY);
+    glVertex2f(posX + metadeX, posY + metadeY);
+    glVertex2f(posX - metadeX, posY + metadeY);
+    glEnd();
+    glFlush();*/
 
+/*int posX = 300, posY = 300;
+    GLfloat circle_points = 100.0f;
+    GLfloat angle;
 
+    glColor3f(TREM_COR_FUNDO.r, TREM_COR_FUNDO.g, TREM_COR_FUNDO.b);
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2f(posX, posY);
+    for (angle=0; angle<=361; angle++){
+        glVertex2f(posX + sin(angle) * TREM_RAIO, posY + cos(angle) * TREM_RAIO);
+    }
+glEnd();
+    glColor3f(PLATAFORMA_COR_BORDA.r, PLATAFORMA_COR_BORDA.g, PLATAFORMA_COR_BORDA.b);
+    glBegin(GL_LINE_LOOP);
+    for (int i = 0; i < circle_points; i++) {
+        angle = 2*M_PI*i/circle_points;
+        glVertex2f(cos(angle)*TREM_RAIO + posX, sin(angle)*TREM_RAIO + posY);
+    }
+    glEnd();
 
+    glColor3f(TREM_COR_TEXTO.r, TREM_COR_TEXTO.g, TREM_COR_TEXTO.b);
+    bitmap_output(posX-2, posY-4, "0", GLUT_BITMAP_TIMES_ROMAN_10);
+
+    glFlush();
+*/
     int bx = 930, by = 75;
     exibe_plataforma("A",bx,by);
 
@@ -215,5 +252,8 @@ for (int angle = 0; angle<=360; angle+=1){
 
 
 
-    glFlush();
+    //glFlush();
+    //glutSwapBuffers();
+    //glutSwapBuffers();
+    //glClearColor(0.0, 0.0, 1.0, 1.0);
 }

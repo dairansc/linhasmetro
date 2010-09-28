@@ -63,7 +63,7 @@
 
 1283786725 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/config.cc
 
-1285479409 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
+1285606086 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
 	<iostream>
 	<string>
 	<stdio.h>
@@ -74,22 +74,22 @@
 	"lib.h"
 	"Plataformas.h"
 	"Conexoes.h"
-	"Linhas.h"
 	"Trens.h"
+	"Linhas.h"
 	"Paineis.h"
 	"inicializacao.h"
 
-1285162108 /home/dairan/Área de Trabalho/linhasmetro/codigos/openGLlib.h
+1285605043 /home/dairan/Área de Trabalho/linhasmetro/codigos/openGLlib.h
 
-1285556477 /home/dairan/Área de Trabalho/linhasmetro/codigos/defines.h
+1285610549 /home/dairan/Área de Trabalho/linhasmetro/codigos/defines.h
 
-1285486441 /home/dairan/Área de Trabalho/linhasmetro/codigos/Linhas.h
+1285607028 /home/dairan/Área de Trabalho/linhasmetro/codigos/Linhas.h
 
 1285486441 /home/dairan/Área de Trabalho/linhasmetro/codigos/Conexoes.h
 
-1285479042 /home/dairan/Área de Trabalho/linhasmetro/codigos/Trens.h
+1285608318 /home/dairan/Área de Trabalho/linhasmetro/codigos/Trens.h
 
-1285555798 /home/dairan/Área de Trabalho/linhasmetro/codigos/Plataformas.h
+1285558704 /home/dairan/Área de Trabalho/linhasmetro/codigos/Plataformas.h
 
 1285551563 /home/dairan/Área de Trabalho/linhasmetro/codigos/Paineis.h
 
@@ -97,5 +97,5 @@
 
 1285342705 /home/dairan/Área de Trabalho/linhasmetro/codigos/lib.h
 
-1285556286 /home/dairan/Área de Trabalho/linhasmetro/codigos/inicializacao.h
+1285616300 /home/dairan/Área de Trabalho/linhasmetro/codigos/inicializacao.h
 

@@ -34,7 +34,7 @@ void Plataformas::desenha(){
     glColor3f(PLATAFORMA_COR_FUNDO.r, PLATAFORMA_COR_FUNDO.g, PLATAFORMA_COR_FUNDO.b);
     glBegin(GL_TRIANGLE_FAN);
     glVertex2f(this->posX, this->posY);
-    for (angle=0; angle<=360; angle++){
+    for (angle=0; angle<=361; angle++){
         glVertex2f(this->posX + sin(angle) * PLATAFORMA_RAIOY, this->posY + cos(angle) * PLATAFORMA_RAIOX);
     }
 //glEnd();
