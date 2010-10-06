@@ -5,12 +5,12 @@
 //#define JANELA_COR_FUNDO PRETO
 //#define JANELA_COR_TEXTO BRANCO
 
-#define TEMPO_NA_PLATAFORMA 5 // Tempo em que o trem fica parado na plataforma
-#define TREM_INTERVALO_COMUNICACAO 2 // Tempo(segundos) em que cada trem ficará atualizando seus dados com a central, tem que ser maior que 0.1 segundos
+#define TEMPO_NA_PLATAFORMA 0 // Tempo em que o trem fica parado na plataforma
+#define TREM_INTERVALO_COMUNICACAO 1 // Tempo(segundos) em que cada trem ficará atualizando seus dados com a central, tem que ser maior que 0.1 segundos
 #define CENTESIMO 0.1 // somente para calibrar tempo na tela
 #define VELOCIDADE_MAXIMA 50 // velocidade máxima dos trens
 #define ACELERACAO 0.1 // aceleração de arrancada dos trens
-#define DESACELERACAO 0.5 // desaceleração de freio dos trens
+#define DESACELERACAO 0.25 // desaceleração de freio dos trens
 
 GLcor BRANCO =   {1.0, 1.0, 1.0},
       PRETO =    {0.0, 0.0, 0.0},
