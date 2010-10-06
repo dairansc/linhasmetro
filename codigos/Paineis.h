@@ -197,7 +197,7 @@ void Paineis::calcula_tempo(Linhas *lin, Conexoes *cons){
     for(i=0; i<qnt_conexoes && !encontrou; i++){
         //cout << "procurando na conexão: " << this->conexoes[i] << endl;
         if(CENTRAL_TRENS[proximo_trem_pos_vet].conexao_id == this->conexoes[i]){
-            acumulador_distancia += CENTRAL_TRENS[proximo_trem_pos_vet].percorrido;
+            acumulador_distancia += cons[ CENTRAL_TRENS[proximo_trem_pos_vet].conexao_id ].distancia - CENTRAL_TRENS[proximo_trem_pos_vet].percorrido;
             encontrou = true;
         }
         else if(CENTRAL_TRENS[proximo_trem_pos_vet].plataforma_id == this->plataformas[i]){
@@ -211,8 +211,8 @@ void Paineis::calcula_tempo(Linhas *lin, Conexoes *cons){
 
     }
     if(id==1){
-        cout << "------------------" << endl;
-        cout << "Painel[" << id << "], distancia acum: " << acumulador_distancia << ", tempo acum: " << acumulador_tempo << endl;
+        //cout << "------------------" << endl;
+        //cout << "Painel[" << id << "], distancia acum: " << acumulador_distancia << ", tempo acum: " << acumulador_tempo << endl;
     }
     set_tempo((int)((acumulador_distancia/CENTRAL_TRENS[proximo_trem_pos_vet].velocidade)));
 }
