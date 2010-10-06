@@ -49,7 +49,7 @@ void Plataformas::desenha(){
     glColor3f(PLATAFORMA_COR_TEXTO.r, PLATAFORMA_COR_TEXTO.g, PLATAFORMA_COR_TEXTO.b);
     bitmap_output(this->posX-4, this->posY-5, this->nome, GLUT_BITMAP_HELVETICA_12);
 
-    glFlush();
+    //glFlush();
 }
 /*
 void Plataformas::add_todos_paineis(Conexoes *cons){
