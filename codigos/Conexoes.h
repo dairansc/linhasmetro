@@ -34,13 +34,14 @@ void Conexoes::inicializa (int de_plat_id, int ate_plat_id, int tipo_con, GLcor 
 
     this->distancia = sqrt( pow(x2-x1,2) + pow(y2-y1,2) );
 
-    cout << "Nova Conexão da Plataforma " << this->de_plataforma_id << " ate "<< this->ate_plataforma_id << ", ditancia: " << this->distancia << endl;
+    cout << "Nova Conexão [" << this->id << "] da Plataforma " << this->de_plataforma_id << " ate "<< this->ate_plataforma_id << ", ditancia: " << this->distancia << endl;
 }
 
-void Conexoes::desenha(int offsetX, int offsetY){
+void Conexoes::desenha(int deslocaX, int deslocaY){
     glColor3f(cor.r, cor.g, cor.b);
     glBegin(GL_LINES);
-    glVertex2f(plataformas[de_plataforma_id].posX + offsetX, plataformas[de_plataforma_id].posY + offsetY);
-    glVertex2f(plataformas[ate_plataforma_id].posX + offsetX, plataformas[ate_plataforma_id].posY + offsetY);
+    glVertex2f(plataformas[de_plataforma_id].posX + deslocaX, plataformas[de_plataforma_id].posY + deslocaY);
+    glVertex2f(plataformas[ate_plataforma_id].posX + deslocaX, plataformas[ate_plataforma_id].posY + deslocaY);
     glEnd();
+    //glFlush();
 }

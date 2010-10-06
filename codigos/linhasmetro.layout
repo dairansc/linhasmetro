@@ -2,33 +2,33 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
 	<File name="Conexoes.h" open="1" top="0" tabpos="2">
-		<Cursor position="1124" topLine="32" />
+		<Cursor position="863" topLine="24" />
 	</File>
 	<File name="Linhas.h" open="1" top="0" tabpos="3">
-		<Cursor position="277" topLine="5" />
+		<Cursor position="1552" topLine="48" />
 	</File>
-	<File name="Paineis.h" open="1" top="0" tabpos="4">
-		<Cursor position="1309" topLine="35" />
+	<File name="Paineis.h" open="1" top="1" tabpos="4">
+		<Cursor position="7104" topLine="199" />
 	</File>
 	<File name="Plataformas.h" open="1" top="0" tabpos="5">
-		<Cursor position="252" topLine="5" />
+		<Cursor position="334" topLine="19" />
 	</File>
 	<File name="Trens.h" open="1" top="0" tabpos="6">
-		<Cursor position="555" topLine="16" />
+		<Cursor position="98" topLine="60" />
 	</File>
-	<File name="defines.h" open="1" top="1" tabpos="7">
-		<Cursor position="1284" topLine="44" />
+	<File name="defines.h" open="1" top="0" tabpos="7">
+		<Cursor position="1189" topLine="21" />
 	</File>
 	<File name="inicializacao.h" open="1" top="0" tabpos="10">
-		<Cursor position="6357" topLine="193" />
+		<Cursor position="3629" topLine="72" />
 	</File>
 	<File name="lib.h" open="1" top="0" tabpos="9">
-		<Cursor position="241" topLine="0" />
+		<Cursor position="801" topLine="13" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="495" topLine="17" />
+		<Cursor position="2445" topLine="91" />
 	</File>
 	<File name="openGLlib.h" open="1" top="0" tabpos="8">
-		<Cursor position="333" topLine="11" />
+		<Cursor position="78" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
