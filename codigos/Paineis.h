@@ -171,6 +171,7 @@ void Paineis::procura_prox_trem(Linhas *lin, Conexoes *cons){
                 proximo_trem_pos_vet = j;
                 encontrou = true;
             }
+
         }
     }
 
@@ -196,23 +197,21 @@ void Paineis::calcula_tempo(Linhas *lin, Conexoes *cons){
 
     for(i=0; i<qnt_conexoes && !encontrou; i++){
         //cout << "procurando na conexão: " << this->conexoes[i] << endl;
-        if(CENTRAL_TRENS[proximo_trem_pos_vet].conexao_id == this->conexoes[i]){
-            acumulador_distancia += cons[ CENTRAL_TRENS[proximo_trem_pos_vet].conexao_id ].distancia - CENTRAL_TRENS[proximo_trem_pos_vet].percorrido;
+        if(CENTRAL_TRENS[ this->trens[proximo_trem_pos_vet] ].conexao_id == this->conexoes[i]){
+            acumulador_distancia += cons[  CENTRAL_TRENS[ this->trens[proximo_trem_pos_vet] ].conexao_id  ].distancia - CENTRAL_TRENS[ this->trens[proximo_trem_pos_vet] ].percorrido;
             encontrou = true;
         }
-        else if(CENTRAL_TRENS[proximo_trem_pos_vet].plataforma_id == this->plataformas[i]){
+        else if(CENTRAL_TRENS[ this->trens[proximo_trem_pos_vet] ].plataforma_id == this->plataformas[i]){
             encontrou = true;
         }
         else{
-            acumulador_distancia += cons[ CENTRAL_TRENS[proximo_trem_pos_vet].conexao_id ].distancia;
+            acumulador_distancia += cons[  CENTRAL_TRENS[ this->trens[proximo_trem_pos_vet] ].conexao_id  ].distancia;
             acumulador_tempo += TEMPO_NA_PLATAFORMA;
         }
-
-
     }
     if(id==1){
         //cout << "------------------" << endl;
         //cout << "Painel[" << id << "], distancia acum: " << acumulador_distancia << ", tempo acum: " << acumulador_tempo << endl;
     }
-    set_tempo((int)((acumulador_distancia/CENTRAL_TRENS[proximo_trem_pos_vet].velocidade)));
+    set_tempo((int)((acumulador_distancia/CENTRAL_TRENS[ this->trens[proximo_trem_pos_vet] ].velocidade)));
 }

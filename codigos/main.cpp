@@ -5,6 +5,7 @@ using namespace std;
 #include <math.h>
 #include <GL/glut.h>
 #include <pthread.h>
+#include <semaphore.h>
 
 //cabeçalhos próprios
 #include "openGLlib.h"
@@ -15,6 +16,9 @@ Central CENTRAL_TRENS[TREM_QNT_MAX];
 
 pthread_t t_trens[TREM_QNT_MAX],
           t_paineis[PAINEL_QNT_MAX];
+
+sem_t s_central;
+      //s_paineis[PAINEL_QNT_MAX];
 
 int ids_trens[TREM_QNT_MAX],
     ids_paineis[PAINEL_QNT_MAX];
@@ -43,7 +47,7 @@ void *thread_trem(void * argumentos){
     qnt_conexoes = linhas[ trens[id].linha_id ].qnt_conexoes;
     cout << "Nova thread Trem[" << id << "] pertencente a linha " << trens[id].linha_id << endl;
     //cout << linhas[ trens[id].linha_id ].qnt_trens << endl;
-    sleep((id - linhas[ trens[id].linha_id -1 ].qnt_trens) * TREM_INTERVALO_SAIDA);
+    sleep((id - (trens[id].linha_id*2)) * TREM_INTERVALO_SAIDA);
     while(1){
         usleep(CENTESIMO * 1000000);
         //cout << "Thread Trem: " << id << endl;
@@ -59,7 +63,11 @@ void *thread_trem(void * argumentos){
             trens[id].percorrido = 0;
             trens[id].plataforma_atual_id = conexoes[ trens[id].conexao_atual_id ].ate_plataforma_id;
             trens[id].conexao_atual_id = -1;
+            debug(DEBUG_TREM, id, id);
+            sem_wait(&s_central);
+            //debug(DEBUG_TREM_OK, id, id);
             CENTRAL_TRENS[id] = atualiza_posicao_trem(id, trens[id].plataforma_atual_id, trens[id].conexao_atual_id, trens[id].percorrido, trens[id].velocidade_atual);
+            sem_post(&s_central);
             sleep(TEMPO_NA_PLATAFORMA);
             trens[id].plataforma_atual_id = -1;
 
@@ -78,7 +86,11 @@ void *thread_trem(void * argumentos){
 
         if(intervalo_tempo == cont_tempo){
             cont_tempo = 0;
+            debug(DEBUG_TREM, id, id);
+            sem_wait(&s_central);
+            //debug(DEBUG_TREM_OK, id, id);
             CENTRAL_TRENS[id] = atualiza_posicao_trem(id, trens[id].plataforma_atual_id, trens[id].conexao_atual_id, trens[id].percorrido, trens[id].velocidade_atual);
+            sem_post(&s_central);
         }
         else{
             cont_tempo++;
@@ -89,7 +101,7 @@ void *thread_trem(void * argumentos){
 
 void *thread_painel(void * argumentos){
     int id = * (int *)argumentos;
-    int i, prox_qnt_plat = 0, prox_qnt_cons = 0;
+    int i, prox_qnt_plat = 0, prox_qnt_cons = 0, plataforma_id_prox_trem;
 
 /*
     for(i=0; i<TREM_QNT; i++){
@@ -105,19 +117,33 @@ void *thread_painel(void * argumentos){
         //if(paineis[id].trem_esta_na_plataforma(linhas)){
         //    paineis[id].set_tempo(0);
         //}
-        if(paineis[id].proximo_trem_pos_vet >= 0 && CENTRAL_TRENS[ paineis[id].proximo_trem_pos_vet ].plataforma_id == paineis[id].plataforma_id){
-            paineis[id].set_tempo(0);
-            paineis[id].proximo_trem_pos_vet = -1;
-        }
-        else if(paineis[id].proximo_trem_pos_vet < 0 && CENTRAL_TRENS[ paineis[id].proximo_trem_pos_vet ].plataforma_id != paineis[id].plataforma_id){
-            paineis[id].procura_prox_trem(linhas, conexoes);
-            //for(i=0; i<qnt_conexoes && !encontrou; i++){
+        /*
+        if(paineis[id].proximo_trem_pos_vet >= 0){
+            plataforma_id_prox_trem = CENTRAL_TRENS[  paineis[id].trens[ paineis[id].proximo_trem_pos_vet ]  ].plataforma_id;
+        }*/
+        if(paineis[id].proximo_trem_pos_vet >= 0){
+            debug(DEBUG_PAINEL, id, paineis[id].trens[ paineis[id].proximo_trem_pos_vet ]);
+            sem_wait(&s_central);
+            //debug(DEBUG_PAINEL_OK, id, paineis[id].trens[ paineis[id].proximo_trem_pos_vet ]);
+            if(paineis[id].proximo_trem_pos_vet >= 0 && CENTRAL_TRENS[  paineis[id].trens[ paineis[id].proximo_trem_pos_vet ]  ].plataforma_id == paineis[id].plataforma_id){
+                paineis[id].set_tempo(0);
+                paineis[id].proximo_trem_pos_vet = -1;
+            }
+            //else if(paineis[id].proximo_trem_pos_vet < 0 && CENTRAL_TRENS[  paineis[id].trens[ paineis[id].proximo_trem_pos_vet ]  ].plataforma_id != paineis[id].plataforma_id){
+            //    paineis[id].procura_prox_trem(linhas, conexoes);
+                //for(i=0; i<qnt_conexoes && !encontrou; i++){
 
+                //}
             //}
+            else if(CENTRAL_TRENS[  paineis[id].trens[ paineis[id].proximo_trem_pos_vet ]  ].plataforma_id != paineis[id].plataforma_id){
+                paineis[id].calcula_tempo(linhas, conexoes);
+            }
+            sem_post(&s_central);
         }
-        else if(CENTRAL_TRENS[ paineis[id].proximo_trem_pos_vet ].plataforma_id != paineis[id].plataforma_id){
-            paineis[id].calcula_tempo(linhas, conexoes);
+        else{
+            paineis[id].procura_prox_trem(linhas, conexoes);
         }
+
     }
 
     return (NULL);

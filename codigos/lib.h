@@ -26,3 +26,22 @@ Central atualiza_posicao_trem(int trem_id, int plat_id, int con_id, float perc, 
     }
     return t;
 }
+
+void debug(int tipo, int quem, int aux){
+    if(MODO_DEBUG){
+        switch(tipo){
+            case DEBUG_TREM:
+                printf("Trem[%d] aguardando semáforo Trem[%d]...\n", quem, aux);
+            break;
+            /*case DEBUG_TREM_OK:
+                printf("Trem[%d] liberado pelo semáforo Trem[%d]...\n", quem, aux);
+            break;*/
+            case DEBUG_PAINEL:
+                printf("Painel[%d] aguardando semáforo Trem[%d]...\n", quem, aux);
+            break;
+            /*case DEBUG_PAINEL_OK:
+                printf("Painel[%d] liberado pelo semáforo Trem[%d]...\n", quem, aux);
+            break;*/
+        }
+    }
+}
