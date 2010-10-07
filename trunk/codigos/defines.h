@@ -5,6 +5,12 @@
 //#define JANELA_COR_FUNDO PRETO
 //#define JANELA_COR_TEXTO BRANCO
 
+// Identificadores de Debug
+#define DEBUG_TREM    0
+#define DEBUG_PAINEL  1
+
+#define MODO_DEBUG    0
+
 #define TEMPO_NA_PLATAFORMA 0 // Tempo em que o trem fica parado na plataforma
 #define TREM_INTERVALO_COMUNICACAO 1 // Tempo(segundos) em que cada trem ficará atualizando seus dados com a central, tem que ser maior que 0.1 segundos
 #define CENTESIMO 0.1 // somente para calibrar tempo na tela
@@ -24,7 +30,7 @@ GLcor BRANCO =   {1.0, 1.0, 1.0},
 
 #define PLATAFORMA_RAIOX 20.0
 #define PLATAFORMA_RAIOY 10.0
-#define PLATAFORMA_QNT_MAX 15
+#define PLATAFORMA_QNT_MAX 30
 int PLATAFORMA_QNT = 0;
 GLcor PLATAFORMA_COR_BORDA = PRETO,
       PLATAFORMA_COR_FUNDO = BRANCO,
@@ -42,22 +48,22 @@ int PLATAFORMA_SLOTS[16][2] = //posição de cada painel em relação a platafor
 #define CON_TIPO_NORMAL 0
 #define CON_TIPO_INICIO 1
 #define CON_TIPO_FIM    2
-#define CON_QNT_MAX     50
+#define CON_QNT_MAX     100
 int CON_QNT = 0;
 
-#define LINHA_CON_QNT_MAX 50
-#define LINHA_TREM_QNT_MAX 10
-#define LINHA_QNT_MAX 8
+#define LINHA_CON_QNT_MAX 100
+#define LINHA_TREM_QNT_MAX 100
+#define LINHA_QNT_MAX 20
 int LINHA_QNT = 0;
 
-#define TREM_INTERVALO_SAIDA 15 // intervalo em que cada trem de cada linha espera para sair depois do anterior
+#define TREM_INTERVALO_SAIDA 25 // intervalo em que cada trem de cada linha espera para sair depois do anterior
 #define TREM_RAIO 6
-#define TREM_QNT_MAX 30
+#define TREM_QNT_MAX 100
 int TREM_QNT = 0;
 GLcor TREM_COR_FUNDO = BRANCO,
       TREM_COR_TEXTO = PRETO;
 
-#define PAINEL_QNT_MAX 30
+#define PAINEL_QNT_MAX 100
 int PAINEL_QNT = 0;
 GLcor PAINEL_COR_FUNDO = CINZA,
       PAINEL_COR_TEXTO = PRETO;

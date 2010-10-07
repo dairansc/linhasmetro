@@ -1,6 +1,17 @@
 void init(void){
+    int linha_id, i, j, k, l;
+
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glOrtho (0, JANELA_TAM_X, 0, JANELA_TAM_Y, -1 ,1);
+
+    // inicialização dos semáforos
+    //for(i=0; i < TREM_QNT_MAX; i++){
+        sem_init(&s_central, 0, 1);
+    //}
+    /*for(i=0; i < PAINEL_QNT_MAX; i++){
+        sem_init(&s_paineis[i], 0, 1);
+    }*/
+
 
     plataformas[0].inicializa("A",70,420);
     plataformas[1].inicializa("B",100,250);
@@ -24,39 +35,72 @@ void init(void){
     linhas[0].add_trem(trens, conexoes);
     ids_trens[TREM_QNT]=TREM_QNT;
     linhas[0].add_trem(trens, conexoes);
-    ids_trens[TREM_QNT]=TREM_QNT;
-    linhas[0].add_trem(trens, conexoes);
+    //ids_trens[TREM_QNT]=TREM_QNT;
+    //linhas[0].add_trem(trens, conexoes);
 
-    linhas[1].inicializa("GEDBCG", VERMELHO);
-    linhas[1].add_conexao(6,4,CON_TIPO_INICIO,conexoes);
-    linhas[1].add_conexao(4,3,CON_TIPO_NORMAL,conexoes);
-    linhas[1].add_conexao(3,1,CON_TIPO_NORMAL,conexoes);
-    linhas[1].add_conexao(1,2,CON_TIPO_NORMAL,conexoes);
-    linhas[1].add_conexao(2,6,CON_TIPO_FIM,conexoes);
-    ids_trens[TREM_QNT]=TREM_QNT;
-    linhas[1].add_trem(trens, conexoes);
-    ids_trens[TREM_QNT]=TREM_QNT;
-    linhas[1].add_trem(trens, conexoes);
-    ids_trens[TREM_QNT]=TREM_QNT;
-    linhas[1].add_trem(trens, conexoes);
-/*
-    linhas[1].inicializa("PUC", BRANCO);
-    linhas[1].add_conexao(1,2,CON_TIPO_INICIO,conexoes);
-    linhas[1].add_conexao(2,3,CON_TIPO_FIM,conexoes);
-    linhas[1].add_conexao(3,1,CON_TIPO_NORMAL,conexoes);
 
-    linhas[2].inicializa("Inter", VERMELHO);
-    linhas[2].add_conexao(3,0,CON_TIPO_INICIO,conexoes);
-    linhas[2].add_conexao(0,1,CON_TIPO_FIM,conexoes);
+    linhas[1].inicializa("DEGIH", VERMELHO);
+    linhas[1].add_conexao(3,4,CON_TIPO_INICIO,conexoes);
+    linhas[1].add_conexao(4,6,CON_TIPO_NORMAL,conexoes);
+    linhas[1].add_conexao(6,8,CON_TIPO_NORMAL,conexoes);
+    linhas[1].add_conexao(8,7,CON_TIPO_FIM,conexoes);
+    linhas[1].add_conexao(7,8,CON_TIPO_INICIO,conexoes);
+    linhas[1].add_conexao(8,6,CON_TIPO_NORMAL,conexoes);
+    linhas[1].add_conexao(6,4,CON_TIPO_NORMAL,conexoes);
+    linhas[1].add_conexao(4,3,CON_TIPO_FIM,conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[1].add_trem(trens, conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[1].add_trem(trens, conexoes);
+
+
+    linhas[2].inicializa("FGJ", AMARELO);
+    linhas[2].add_conexao(5,6,CON_TIPO_INICIO,conexoes);
+    linhas[2].add_conexao(6,9,CON_TIPO_FIM,conexoes);
+    linhas[2].add_conexao(9,6,CON_TIPO_INICIO,conexoes);
+    linhas[2].add_conexao(6,5,CON_TIPO_FIM,conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[2].add_trem(trens, conexoes);
     ids_trens[TREM_QNT]=TREM_QNT;
     linhas[2].add_trem(trens, conexoes);
 
-    linhas[3].inicializa("Outra", AZUL);
-    linhas[3].add_conexao(2,4,CON_TIPO_INICIO,conexoes);
+
+    linhas[3].inicializa("ABD", ROSA);
+    linhas[3].add_conexao(0,1,CON_TIPO_INICIO,conexoes);
+    linhas[3].add_conexao(1,3,CON_TIPO_FIM,conexoes);
+    linhas[3].add_conexao(3,1,CON_TIPO_INICIO,conexoes);
+    linhas[3].add_conexao(1,0,CON_TIPO_FIM,conexoes);
     ids_trens[TREM_QNT]=TREM_QNT;
     linhas[3].add_trem(trens, conexoes);
-*/
-    int linha_id, i, j, k, l;
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[3].add_trem(trens, conexoes);
+
+
+    linhas[4].inicializa("GEDBCG", AZUL);
+    linhas[4].add_conexao(6,4,CON_TIPO_INICIO,conexoes);
+    linhas[4].add_conexao(4,3,CON_TIPO_NORMAL,conexoes);
+    linhas[4].add_conexao(3,1,CON_TIPO_NORMAL,conexoes);
+    linhas[4].add_conexao(1,2,CON_TIPO_NORMAL,conexoes);
+    linhas[4].add_conexao(2,6,CON_TIPO_FIM,conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[4].add_trem(trens, conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[4].add_trem(trens, conexoes);
+        //ids_trens[TREM_QNT]=TREM_QNT;
+    //linhas[1].add_trem(trens, conexoes);
+
+/*
+    linhas[5].inicializa("GIHF", AMARELO);
+    linhas[5].add_conexao(6,8,CON_TIPO_INICIO,conexoes);
+    linhas[5].add_conexao(8,7,CON_TIPO_NORMAL,conexoes);
+    linhas[5].add_conexao(7,5,CON_TIPO_NORMAL,conexoes);
+    linhas[5].add_conexao(5,6,CON_TIPO_FIM,conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[5].add_trem(trens, conexoes);
+    ids_trens[TREM_QNT]=TREM_QNT;
+    linhas[5].add_trem(trens, conexoes);*/
+
+
 
     // Inicializa dados da central
     for(i=0; i < TREM_QNT; i++){
@@ -97,13 +141,41 @@ void display(void){
     conexoes[i].desenha(0,0); i++;
     conexoes[i].desenha(0,1); i++;
 
-    //linhas[1].inicializa("GEDBCG", VERMELHO);
+    //linhas[1].inicializa("DEGIH", VERMELHO);
     conexoes[i].desenha(0,0); i++;
     conexoes[i].desenha(0,0); i++;
     conexoes[i].desenha(0,0); i++;
     conexoes[i].desenha(0,0); i++;
-    conexoes[i].desenha(0,-6); i++;
+    conexoes[i].desenha(-1,2); i++;
+    conexoes[i].desenha(0,2); i++;
+    conexoes[i].desenha(-1,2); i++;
+    conexoes[i].desenha(0,2); i++;
 
+
+    //linhas[2].inicializa("FGJ", AMARELO);
+    conexoes[i].desenha(2,0); i++;
+    conexoes[i].desenha(1,4); i++;
+    conexoes[i].desenha(1,7); i++;
+    conexoes[i].desenha(-1,0); i++;
+
+    //linhas[3].inicializa("ABD", ROSA);
+    conexoes[i].desenha(-3,0); i++;
+    conexoes[i].desenha(-3,0); i++;
+    conexoes[i].desenha(0,0); i++;
+    conexoes[i].desenha(0,0); i++;
+
+    //linhas[4].inicializa("GEDBCG", AZUL);
+    conexoes[i].desenha(-4,4); i++;
+    conexoes[i].desenha(0,5); i++;
+    conexoes[i].desenha(3,0); i++;
+    conexoes[i].desenha(0,0); i++;
+    conexoes[i].desenha(-2,-5); i++;
+/*
+    //linhas[5].inicializa("GIHF", AMARELO);
+    conexoes[i].desenha(0,0); i++;
+    conexoes[i].desenha(0,0); i++;
+    conexoes[i].desenha(0,0); i++;
+    conexoes[i].desenha(0,0); i++;*/
 
     //conexoes[i].desenha(0,0); i++;
 

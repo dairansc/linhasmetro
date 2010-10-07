@@ -63,13 +63,14 @@
 
 1283786725 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/config.cc
 
-1286392545 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
+1286474813 source:/home/dairan/Área de Trabalho/linhasmetro/codigos/main.cpp
 	<iostream>
 	<string>
 	<stdio.h>
 	<math.h>
 	<GL/glut.h>
 	<pthread.h>
+	<semaphore.h>
 	"openGLlib.h"
 	"defines.h"
 	"lib.h"
@@ -82,7 +83,7 @@
 
 1286392545 /home/dairan/Área de Trabalho/linhasmetro/codigos/openGLlib.h
 
-1286394161 /home/dairan/Área de Trabalho/linhasmetro/codigos/defines.h
+1286479825 /home/dairan/Área de Trabalho/linhasmetro/codigos/defines.h
 
 1286392545 /home/dairan/Área de Trabalho/linhasmetro/codigos/Linhas.h
 
@@ -92,11 +93,11 @@
 
 1286392545 /home/dairan/Área de Trabalho/linhasmetro/codigos/Plataformas.h
 
-1286393746 /home/dairan/Área de Trabalho/linhasmetro/codigos/Paineis.h
+1286466421 /home/dairan/Área de Trabalho/linhasmetro/codigos/Paineis.h
 
 1285338828 /home/dairan/Área de Trabalho/linhasmetro/codigos/libs.h
 
-1286392545 /home/dairan/Área de Trabalho/linhasmetro/codigos/lib.h
+1286468706 /home/dairan/Área de Trabalho/linhasmetro/codigos/lib.h
 
-1286392545 /home/dairan/Área de Trabalho/linhasmetro/codigos/inicializacao.h
+1286474813 /home/dairan/Área de Trabalho/linhasmetro/codigos/inicializacao.h
 
